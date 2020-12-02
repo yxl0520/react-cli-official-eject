@@ -50,6 +50,10 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
+function resolvePath(dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
@@ -298,6 +302,15 @@ module.exports = function(webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+        /**
+         * @description: CAR被eject后，在这里配置alias别名即可
+         * @Author: Colin
+         * @Date: 2020-07-23 15:16:59
+         */
+        ...{
+          '@': path.join(__dirname, '../src'),
+          pages: resolvePath('src/pages')
+        }
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -431,6 +444,7 @@ module.exports = function(webpackEnv) {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
+                modules: true, // CRA在eject后，需在这里配置开启CSS的模块化引入
                 sourceMap: isEnvProduction && shouldUseSourceMap,
               }),
               // Don't consider CSS imports dead code even if the
