@@ -1,0 +1,23 @@
+// .use-sass {
+//   color: blue;
+// }
+h2 {
+  color: #ff5e5e;
+  font-size: 14px;
+}
+.desc {
+  .note {
+    padding: 8px;
+    font-size: 12px;
+    line-height: 18px;
+    background-color: #EFEFF4;
+    border-radius: 4px;
+    
+  }
+  .demo {
+    font-size: 14px;
+  }
+  span {
+    color: #ff5e5e;
+  }
+}

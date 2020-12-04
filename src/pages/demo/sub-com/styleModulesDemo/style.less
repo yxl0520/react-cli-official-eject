@@ -1,0 +1,32 @@
+.box-wrapper {
+  margin: 8px 16px;
+  :global {
+    h2 {
+      color: #ff5e5e;
+      font-size: 14px;
+    }
+    .desc {
+      .note {
+        padding: 8px;
+        font-size: 12px;
+        line-height: 18px;
+        background-color: #EFEFF4;
+        border-radius: 4px;
+      }
+      .demo {
+        font-size: 14px;
+      }
+      span {
+        color: #ff5e5e;
+      }
+    }
+  }
+}
+// 方式一：使用global
+:global(.global-demo) {
+  color: blue;
+}
+// 方式二：使用对象属性值的方式
+.className {
+  color: green;
+}
