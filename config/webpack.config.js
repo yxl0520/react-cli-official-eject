@@ -454,7 +454,7 @@ module.exports = function(webpackEnv) {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                modules: true, // CRA在eject后，需在这里配置开启CSS的模块化引入
+                // modules: true, // CRA在eject后，需在这里配置开启CSS的模块化引入【取消css格式文件的模块化导入，因为可能出现和第三方导入的css文件冲突-- 2020.12.14】
                 sourceMap: isEnvProduction && shouldUseSourceMap,
               }),
               // Don't consider CSS imports dead code even if the

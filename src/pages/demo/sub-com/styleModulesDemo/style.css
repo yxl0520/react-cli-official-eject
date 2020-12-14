@@ -5,7 +5,14 @@
   /* 该样式不生效，因为class名导入到index.jsx后会被webpack重新编译，起到module作用域效果 */
   color: yellow;
 }
+/*
+// 该样式添加了:global, 在取消css文件模块化导入后，将不生效
 :global(.use-css) {
+  
+  color: rgb(38, 206, 248);
+}
+*/
+.use-css {
   /* 该样式生效 */
   color: rgb(38, 206, 248);
 }

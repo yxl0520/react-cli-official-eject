@@ -5,13 +5,13 @@ import styleLess from './style.less' // 导入less，模块化处理
 import './style.common.less' // 非模块化
 
 import './style.scss'
-import styleSass from './style.module.scss'
+import styleSass from './style.module.scss' // 模块化导入scss
 // console.log(styleSass)
 
-import styleCss from './style.css'
+// import styleCss from './style.css'
+import './style.css' // css文件已改成非模块化导入，为了反之导入第三方css样式文件时有冲突
 
 export default class StyleModule extends Component {
-
   render() {
     return (
       <div>
@@ -51,19 +51,29 @@ export default class StyleModule extends Component {
               【2】如果需要模块化方式引入scss，则请使用
               <span> .module.scss </span>
               为后缀的文件名
+              <br />
+              【3】scss编译后，样式文件名如：
+              <span>.style_box-wrapper__2XQ4H h2</span>，会覆盖
+              <span style={{ color: 'rgb(38, 206, 248)' }}>style.scss文件</span>
+              内的样式
             </p>
           </div>
         </div>
         {/* 3. CSS语言的模块化引入 */}
-        <div className={`box use-css ${styleCss['box-wrapper']}`}>
-          <h2 className="sub-title">3. 使用Css预处理语言:（模块化方式）</h2>
+        <div className={`box use-css box-wrapper`}>
+          <h2 className="sub-title">3. 使用CSS:（改为非模块化导入方式）</h2>
           <div className="desc">
             <p className="note">
-              【1】css文件已配置成module方式引入
+              【1】css文件已修改为配置成非module方式引入
+              <br />
+              【2】项目开发过程中，我们有可能会引入第三方插件的样式文件，它们通常采用
+              <span>.css</span>
+              为后缀，为了不引起冲突，推荐开发时，自己使用<span>less</span>或
+              <span>sacc</span>语言开发，并启用模块化。
             </p>
           </div>
         </div>
       </div>
-    )  
+    )
   }
 }

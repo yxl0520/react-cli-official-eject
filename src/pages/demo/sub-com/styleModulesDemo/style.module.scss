@@ -1,3 +1,24 @@
 .box-wrapper {
   margin: 8px 16px;
+  :global {
+    h2 {
+      color: #f0f;
+      font-size: 14px;
+    }
+    .desc {
+      .note {
+        padding: 8px;
+        font-size: 12px;
+        line-height: 18px;
+        background-color: #efeff4;
+        border-radius: 4px;
+      }
+      .demo {
+        font-size: 14px;
+      }
+      span {
+        color: #ff5e5e;
+      }
+    }
+  }
 }

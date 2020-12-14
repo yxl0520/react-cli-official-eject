@@ -13,7 +13,7 @@
   }
 }
 
-:global(.App-header) {
+.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,7 +24,7 @@
   color: white;
 }
 
-:global(.App-link) {
+.App-link {
   color: #61dafb;
 }
 
